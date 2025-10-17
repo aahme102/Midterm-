@@ -35,22 +35,22 @@ block
 Country = block |> 
   html_element("h3.country-name") |> 
   html_text2()
-Country
+head (Country, 10)
 
 Capital <- block |> 
   html_element("span.country-capital") |> 
   html_text2()
-Capital
+head (Capital, 10)
 
 Population <- block %>%
   html_element("span.country-population") %>%
   html_text2()
-population
+head (Population, 10)
 
 Area <- block %>%
   html_element("span.country-area") %>%
   html_text2()
-Area
+head(Area, 10)
 ```
 
 ```{r}
