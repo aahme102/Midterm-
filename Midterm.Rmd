@@ -15,4 +15,53 @@ One of the major causes of obesity in the United States is aggressive marketing 
 
 Children and adolescents with obesity are likely to remain obese into adulthood, perpetuating a cycle of poor health outcomes and social disadvantages. This has a negative impact on the national productivity and workforce capacity. national productivity and workforce capacity. Therefore, addressing this civic problem requires an indoctrination of healthcare measures and technological solutions to cultivate sustainable lifestyles.
 
+# Part II: Web scraping 
 
+```{r}
+library(rvest)
+library(tidyverse)
+```
+
+```{r}
+url <- "https://www.scrapethissite.com/pages/simple/"
+html <- read_html(url)
+```
+
+```{r}
+block <- html |> 
+  html_elements("div.col-md-4.country")
+block  
+
+Country = block |> 
+  html_element("h3.country-name") |> 
+  html_text2()
+Country
+
+Capital <- block |> 
+  html_element("span.country-capital") |> 
+  html_text2()
+Capital
+
+Population <- block %>%
+  html_element("span.country-population") %>%
+  html_text2()
+population
+
+Area <- block %>%
+  html_element("span.country-area") %>%
+  html_text2()
+Area
+```
+
+```{r}
+df = tibble(
+  Country,
+  Capital,
+  Population,
+  Area
+)
+```
+
+```{r}
+head(df, 10) 
+```
