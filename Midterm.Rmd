@@ -7,6 +7,8 @@ output:
   highlight: espresso
 ---
 
+Link to Repository: https://github.com/aahme102/Midterm-.git
+
 # Part I: Civic Issue – Obesity in the United States
 
 Obesity is a major health concern in the United States. It is reported that obesity contributes to over \$170 billion in annual medical costs. This is a grave strain on the healthcare system that deepens inequalities and increases healthcare costs (CDC, 2024). This includes billions in extra costs to the Medicare and Medicaid programs. According to the World Health Organization (WHO), obesity is defined as having a body mass index (BMI) of 30 kg/m2 or higher for adults (Chusan et al., 2025). The prevalence of this disease is a significant health concern, contributing to major complications like diabetes, heart disease, high blood pressure, sleep apnea, and cancer. It also contributes to poor mental health, reduced quality of life, and greater levels of disability (Mayo, 2023). According to the Centers for Disease Control and Prevention (CDC), the prevalence of obesity among adults aged 20 and older in the U.S. was 41.9% from 2017 to 2020. This equates to over 100 million individuals (CDC, 2024). It is further projected that by 2035, obesity rates will rise even further, reaching 25% among adults and 19% among youth (Chusan et al., 2025).
@@ -19,6 +21,9 @@ Children and adolescents with obesity are likely to remain obese into adulthood,
 
 ```{r}
 library(rvest)
+library(httr)
+library(jsonlite)
+library(tidycensus)
 library(tidyverse)
 ```
 
@@ -65,3 +70,21 @@ df = tibble(
 ```{r}
 head(df, 10) 
 ```
+
+# PART III: API Access
+
+**Step 1: Identify Relevant Variables**
+
+https://api.census.gov/data/2023/acs/acs5/groups/B19013.html
+
+https://api.census.gov/data/2023/acs/acs5/groups/B28002.html
+
+
+Median household income (in the past 12 months): **B19013_001E**
+Households with broadband Internet: **B28002_007E** 
+Total households with any type of internet access: **B28002_001E**
+
+**Step 2: Retrieve Data**
+
+readRenviron("~/.Renviron")
+
