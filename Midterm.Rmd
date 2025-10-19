@@ -119,6 +119,11 @@ county_data1a = county_data1a %>%
   arrange(desc(broadband_rate))
 ```
 
+```{r} 
+county_data1a %>%
+  slice(1:10)
+```
+
 **Step 4: Analyze patterns** 
 
 **a) Compute the mean and median broadband rate across all Illinois counties.** 

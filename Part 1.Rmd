@@ -3,8 +3,12 @@ title: "Part 1"
 author: "Anous Ahmed"
 date: "2025-10-17"
 output:
-  pdf_document:
-  highlight: espresso
+  html_document:
+    theme: flatly
+    highlight: espresso
+    toc: true
+    toc_float: true
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
